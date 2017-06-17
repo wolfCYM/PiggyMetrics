@@ -1,4 +1,4 @@
-FROM 10.0.0.6:5000/piggymetrics/mongo:3
+FROM index.alauda.cn/demo100/mongo:3
 MAINTAINER Alexander Lukyanchikov <sqshq@sqshq.com>
 
 ADD init.sh /init.sh

@@ -1,6 +1,6 @@
     version: "0.1.0"
     pre_ci_boot: 
-        image: 10.0.0.6:5000/piggymetrics/piggyjava 
+        image: index.alauda.cn/demo100/piggyjava 
         tag: latest
 
     ci:

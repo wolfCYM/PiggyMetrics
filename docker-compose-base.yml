@@ -13,7 +13,7 @@ services:
 
   config:
     build: config
-    image: sqshq/piggymetrics-config
+    image: sqshq/p-config
     environment:
       CONFIG_SERVICE_PASSWORD: admin
     restart: always
@@ -26,7 +26,7 @@ services:
 
   registry:
     build: registry
-    image: sqshq/piggymetrics-registry
+    image: sqshq/p-registry
     environment:
       CONFIG_SERVICE_PASSWORD: admin
     restart: always
@@ -42,7 +42,7 @@ services:
     environment:
       CONFIG_SERVICE_PASSWORD: admin
     build: gateway
-    image: sqshq/piggymetrics-gateway
+    image: sqshq/p-gateway
     restart: always
     depends_on: [config]
     ports:
@@ -56,7 +56,7 @@ services:
       INIT_DUMP: account-service-dump.js
       MONGODB_PASSWORD: admin
     build: mongodb
-    image: sqshq/piggymetrics-mongodb
+    image: sqshq/p-mongodb
     restart: always
     ports:
       - 25000:27017

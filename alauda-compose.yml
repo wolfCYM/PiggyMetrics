@@ -1,23 +1,21 @@
 rabbitmq:
-  image: 10.0.0.6:5000/piggymetrics/rabbitmq:3-management
+  image: index.alauda.cn/demo100/rabbitmq:3-management
   ports:
     - '15672'
     - '5672'
-  size: XXS
   net: flannel
 
 data-mongodb:
-  image: 10.0.0.6:5000/piggymetrics/piggymetrics-mongodb
+  image: index.alauda.cn/demo100/p-mongodb
   environment:
     INIT_DUMP: account-service-dump.js
     MONGODB_PASSWORD: admin 
   ports:
     - '27017'
-  size: XXS
   net: flannel
 
 config:
-  image: 10.0.0.6:5000/piggymetrics/piggymetrics-config
+  image: index.alauda.cn/demo100/p-config
   environment:
     CONFIG_SERVICE_PASSWORD: admin
   links:
@@ -25,35 +23,32 @@ config:
     - 'data-mongodb:data-mongodb'
   ports:
     - '8888'
-  size: XXS
   net: flannel
 
 registry:
-  image: 10.0.0.6:5000/piggymetrics/piggymetrics-registry
+  image: index.alauda.cn/demo100/p-registry
   environment:
     CONFIG_SERVICE_PASSWORD: admin
   links:
     - 'config:config'
   alauda_lb: ALB
   ports:
-    - '10.0.0.6:8761:8761/http'    
-  size: XXS
+    - 'piggy:8761:8761/http'    
   net: flannel
 
 gateway:
-  image: 10.0.0.6:5000/piggymetrics/piggymetrics-gateway
+  image: index.alauda.cn/demo100/p-gateway
   environment:
     CONFIG_SERVICE_PASSWORD: admin 
   links:
     - 'config:config'
   alauda_lb: ALB
   ports:
-    - '10.0.0.6:80:4000/http' 
-  size: XXS
+    - 'piggy:80:4000/http' 
   net: flannel
 
 auth-service:
-  image: 10.0.0.6:5000/piggymetrics/piggymetrics-auth-service
+  image: index.alauda.cn/demo100/p-auth-service
   environment:
       CONFIG_SERVICE_PASSWORD: admin
       NOTIFICATION_SERVICE_PASSWORD: admin
@@ -64,11 +59,10 @@ auth-service:
     - 'config:config'
   ports:
     - '5000'
-  size: XXS
   net: flannel
 
 account-service:
-  image: 10.0.0.6:5000/piggymetrics/piggymetrics-account-service
+  image: index.alauda.cn/demo100/p-account-service
   environment:
     CONFIG_SERVICE_PASSWORD: admin
     ACCOUNT_SERVICE_PASSWORD: admin
@@ -77,11 +71,10 @@ account-service:
     - 'config:config'
   ports:
     - '6000'
-  size: XXS
   net: flannel
 
 statistics-service:
-  image: 10.0.0.6:5000/piggymetrics/piggymetrics-statistics-service
+  image: index.alauda.cn/demo100/p-statistics-service
   environment:
     CONFIG_SERVICE_PASSWORD: admin
     MONGODB_PASSWORD: admin
@@ -90,11 +83,10 @@ statistics-service:
     - 'config:config'
   ports:
     - '7000'
-  size: XXS
   net: flannel
 
 notification-service:
-  image: 10.0.0.6:5000/piggymetrics/piggymetrics-notification-service
+  image: index.alauda.cn/demo100/p-notification-service
   environment:
     CONFIG_SERVICE_PASSWORD: admin
     MONGODB_PASSWORD: admin
@@ -103,18 +95,16 @@ notification-service:
     - 'config:config'
   ports:
     - '8000'
-  size: XXS
   net: flannel
 
 monitoring:
-  image: 10.0.0.6:5000/piggymetrics/piggymetrics-monitoring
+  image: index.alauda.cn/demo100/p-monitoring
   environment:
     CONFIG_SERVICE_PASSWORD: admin
   links:
     - 'config:config'
   alauda_lb: ALB
   ports:
-    - '10.0.0.6:9000:8080/http'
+    - 'piggy:9000:8080/http'
     - '8989'
-  size: XXS
   net: flannel

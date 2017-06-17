@@ -1,4 +1,4 @@
-FROM 10.0.0.6:5000/piggymetrics/piggyjava 
+FROM index.alauda.cn/demo100/piggyjava 
 MAINTAINER Alexander Lukyanchikov <sqshq@sqshq.com>
 
 ADD ./target/statistics-service.jar /app/
