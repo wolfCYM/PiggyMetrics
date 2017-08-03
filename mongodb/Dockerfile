@@ -1,4 +1,4 @@
-FROM index.alauda.cn/demo100/mongo:3
+FROM index.alauda.cn/alaudademo11/mongo:3
 MAINTAINER Alexander Lukyanchikov <sqshq@sqshq.com>
 
 ADD init.sh /init.sh

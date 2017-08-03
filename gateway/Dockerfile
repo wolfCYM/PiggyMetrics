@@ -1,4 +1,4 @@
-FROM index.alauda.cn/demo100/piggyjava 
+FROM index.alauda.cn/alaudademo11/piggyjava 
 MAINTAINER Alexander Lukyanchikov <sqshq@sqshq.com>
 
 ADD ./target/gateway.jar /app/

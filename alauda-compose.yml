@@ -1,12 +1,12 @@
 rabbitmq:
-  image: index.alauda.cn/demo100/rabbitmq:3-management
+  image: index.alauda.cn/alaudademo11/rabbitmq:3-management
   ports:
     - '15672'
     - '5672'
   net: flannel
 
 data-mongodb:
-  image: index.alauda.cn/demo100/p-mongodb
+  image: index.alauda.cn/alaudademo11/p-mongodb
   environment:
     INIT_DUMP: account-service-dump.js
     MONGODB_PASSWORD: admin 
@@ -15,7 +15,7 @@ data-mongodb:
   net: flannel
 
 config:
-  image: index.alauda.cn/demo100/p-config
+  image: index.alauda.cn/alaudademo11/p-config
   environment:
     CONFIG_SERVICE_PASSWORD: admin
   links:
@@ -26,7 +26,7 @@ config:
   net: flannel
 
 registry:
-  image: index.alauda.cn/demo100/p-registry
+  image: index.alauda.cn/alaudademo11/p-registry
   environment:
     CONFIG_SERVICE_PASSWORD: admin
   links:
@@ -37,7 +37,7 @@ registry:
   net: flannel
 
 gateway:
-  image: index.alauda.cn/demo100/p-gateway
+  image: index.alauda.cn/alaudademo11/p-gateway
   environment:
     CONFIG_SERVICE_PASSWORD: admin 
   links:
@@ -48,7 +48,7 @@ gateway:
   net: flannel
 
 auth-service:
-  image: index.alauda.cn/demo100/p-auth-service
+  image: index.alauda.cn/alaudademo11/p-auth-service
   environment:
       CONFIG_SERVICE_PASSWORD: admin
       NOTIFICATION_SERVICE_PASSWORD: admin
@@ -62,7 +62,7 @@ auth-service:
   net: flannel
 
 account-service:
-  image: index.alauda.cn/demo100/p-account-service
+  image: index.alauda.cn/alaudademo11/p-account-service
   environment:
     CONFIG_SERVICE_PASSWORD: admin
     ACCOUNT_SERVICE_PASSWORD: admin
@@ -74,7 +74,7 @@ account-service:
   net: flannel
 
 statistics-service:
-  image: index.alauda.cn/demo100/p-statistics-service
+  image: index.alauda.cn/alaudademo11/p-statistics-service
   environment:
     CONFIG_SERVICE_PASSWORD: admin
     MONGODB_PASSWORD: admin
@@ -86,7 +86,7 @@ statistics-service:
   net: flannel
 
 notification-service:
-  image: index.alauda.cn/demo100/p-notification-service
+  image: index.alauda.cn/alaudademo11/p-notification-service
   environment:
     CONFIG_SERVICE_PASSWORD: admin
     MONGODB_PASSWORD: admin
@@ -98,7 +98,7 @@ notification-service:
   net: flannel
 
 monitoring:
-  image: index.alauda.cn/demo100/p-monitoring
+  image: index.alauda.cn/alaudademo11/p-monitoring
   environment:
     CONFIG_SERVICE_PASSWORD: admin
   links:
