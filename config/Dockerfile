@@ -1,4 +1,4 @@
-FROM index.alauda.cn/alaudademo11/piggyjava 
+FROM index.alauda.cn/alaudademo11/piggymetricsiggyjava 
 MAINTAINER Alexander Lukyanchikov <sqshq@sqshq.com>
 
 ADD ./target/config.jar /app/
