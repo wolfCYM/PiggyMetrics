@@ -4,6 +4,8 @@
         tag: latest
 
     ci:
+        - cp -r ./* $ALAUDACI_UPLOAD_DIR
         - cp   config/alaudaci/settings.xml  /etc/maven/
         - cd  config
-        - mvn clean package 
+        - mvn clean package
+        - cp -r ./* $ALAUDACI_UPLOAD_DIR
