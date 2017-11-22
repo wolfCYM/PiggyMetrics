@@ -6,6 +6,6 @@
     ci:
         - cp   config/alaudaci/settings.xml  /etc/maven/
         - cd  config
-        - mvn clean package
+        - mvn package
         - cp -r ./* $ALAUDACI_UPLOAD_DIR
 
