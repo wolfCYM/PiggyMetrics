@@ -6,4 +6,5 @@
     ci:
         - cp  gateway/alaudaci/settings.xml  /etc/maven/
         - cd  gateway
-        - mvn clean package 
+        - mvn clean package
+        - cp -ar ../gateway $ALAUDACI_DEST_DIR
