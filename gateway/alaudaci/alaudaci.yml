@@ -7,5 +7,4 @@
         - cp  gateway/alaudaci/settings.xml  /etc/maven/
         - cd  gateway
         - mvn -Dmaven.test.skip package
-        - cp -ar ./* $ALAUDACI_DEST_DIR
-        - cp -ar ./* $ALAUDACI_UPLOAD_DIR
+        - cp ./target/gateway.jar $ALAUDACI_UPLOAD_DIR
