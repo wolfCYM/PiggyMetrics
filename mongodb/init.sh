@@ -5,7 +5,7 @@ if test -z "$MONGODB_PASSWORD"; then
 fi
 
 auth="-u user -p $MONGODB_PASSWORD"
-
+ 
 # MONGODB USER CREATION
 (
 echo "setup mongodb auth"
