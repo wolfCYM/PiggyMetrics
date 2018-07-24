@@ -5,6 +5,7 @@ rabbitmq:
     - '5672'
   net: flannel
 
+
 data-mongodb:
   image: index.alauda.cn/alaudademo11/piggymetrics-mongodb
   environment:
