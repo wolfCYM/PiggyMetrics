@@ -10,7 +10,7 @@
         - cp ./target/gateway.jar $ALAUDACI_UPLOAD_DIR
     sonarqube:
       code_encoding: UTF-8
-      code_language: ''
+      code_language: 'java'
       code_scan_path: ''
-      integration_name: cd420dfa-fb00-47f8-b270-31611590d8ae
+      integration_name: sonar-zhjk-poc
       quality_gate: SonarQube way
