@@ -8,4 +8,9 @@
         - cd  gateway
         - mvn -Dmaven.test.skip package
         - cp ./target/gateway.jar $ALAUDACI_UPLOAD_DIR
-
+    sonarqube:
+      code_encoding: UTF-8
+      code_language: ''
+      code_scan_path: ''
+      integration_name: cd420dfa-fb00-47f8-b270-31611590d8ae
+      quality_gate: SonarQube way
