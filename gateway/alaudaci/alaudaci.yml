@@ -5,7 +5,6 @@
 
     ci:
         - pwd
-        - cd  gateway
         - cp  alaudaci/settings.xml  /etc/maven/
         - mvn -Dmaven.test.skip package
         - cp ./target/gateway.jar $ALAUDACI_UPLOAD_DIR
