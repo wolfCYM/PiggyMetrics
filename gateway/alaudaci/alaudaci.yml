@@ -4,6 +4,8 @@
         tag: latest
 
     ci:
+        - ls
+        - pwd
         - cp  gateway/alaudaci/settings.xml  /etc/maven/
         - cd  gateway
         - mvn -Dmaven.test.skip package
