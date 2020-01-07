@@ -1,0 +1,8 @@
+Maven:
+cd gateway/gateway
+cp alaudaci/settings.xml /opt/apache-maven-3.5.3/conf
+mvn clean package
+
+Docker build:
+Dockerfile: gateway/Dockerfile
+context:./gateway
